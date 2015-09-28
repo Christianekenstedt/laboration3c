@@ -47,9 +47,10 @@ public class Hand {
     public int getValue(){
         int value = 0;
         for(int i=0; i<hand.size();i++){
+            /*
             if(hand.get(i).getRank() >10){
                 value += 10;
-            }else value += hand.get(i).getRank();
+            }else value += hand.get(i).getRank(); */
         }
         return value;
     }
