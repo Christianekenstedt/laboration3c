@@ -2,6 +2,7 @@ package laboration3c;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.io.IOException;
 
 /**
  * This class represent a card deck, built of the class Card.
@@ -30,8 +31,15 @@ public class Deck {
      * @return 
      */
     public Card dealCard(){
-        Card temp = deck.get(deck.size()-1);
-        deck.remove(deck.size()-1);
+        Card temp = null;
+        try{
+            temp = deck.get(deck.size()-1);
+            deck.remove(deck.size()-1);
+        }
+        catch (IndexOutOfBoundsException ie){
+            System.out.println("Index out of bounds: Card dealcard()");
+            System.exit(-1);
+        }
         return temp;
     }
     /**
@@ -49,7 +57,7 @@ public class Deck {
         while (n<52){
             for(int i = 0; i<4;i++){
                 for(int j = 0; j<13;j++){
-                    deck.add(new Card(j+1,i+1));
+                    //deck.add(new Card(j+1,i+1));
                     n++;
                 }
             }
