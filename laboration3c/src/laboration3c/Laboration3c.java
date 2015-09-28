@@ -15,7 +15,8 @@ public class Laboration3c {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Game blackjack = new Game();
+        blackjack.start();
     }
     
 }
