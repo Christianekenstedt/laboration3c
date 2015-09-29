@@ -32,14 +32,10 @@ public class Deck {
      */
     public Card dealCard(){
         Card temp = null;
-        try{
+        if(!deck.isEmpty()){
             temp = deck.get(deck.size()-1);
             deck.remove(deck.size()-1);
-        }
-        catch (IndexOutOfBoundsException ie){
-            System.out.println("Index out of bounds: Card dealcard()");
-            System.exit(-1);
-        }
+        }else throw new NoSuchCardException();
         return temp;
     }
     /**

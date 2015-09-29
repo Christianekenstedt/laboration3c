@@ -54,8 +54,12 @@ public class Game {
      * @return a new card from the deck.
      */
     private void hit(Hand h){
-        h.addCard(deck.dealCard());
-        
+        try{
+            h.addCard(deck.dealCard());
+        }
+        catch (NoSuchCardException ce){
+            //Do something
+        }
     }
     
     /**
