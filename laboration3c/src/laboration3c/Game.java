@@ -18,6 +18,8 @@ public class Game {
         dealer = new Hand();
         player = new Hand();
         deck = new Deck();
+        System.out.println(deck.toString());
+        System.out.println(deck.noOfCards());
         run = true;
         done = false;
     }

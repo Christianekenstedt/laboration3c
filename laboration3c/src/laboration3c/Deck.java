@@ -54,13 +54,13 @@ public class Deck {
     public void fill(){
         int n=0;
         deck.removeAll(deck);
-        while (n<52){
-            for(int i = 0; i<4;i++){
-                for(int j = 0; j<13;j++){
-                    //deck.add(new Card(j+1,i+1));
-                    n++;
-                }
+        
+        for(Card.Suit suit: Card.Suit.values()){
+            for(Card.Rank rank: Card.Rank.values()){
+                deck.add(new Card(rank,suit));
+                
             }
+            
         }
     }
     
