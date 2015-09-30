@@ -35,7 +35,7 @@ public class Deck {
         if(!deck.isEmpty()){
             temp = deck.get(deck.size()-1);
             deck.remove(deck.size()-1);
-        }else throw new NoSuchCardException();
+        }else throw new NoSuchCardException("Deck is empty!");
         return temp;
     }
     /**

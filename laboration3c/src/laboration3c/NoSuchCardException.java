@@ -11,6 +11,11 @@ package laboration3c;
  */
 public class NoSuchCardException extends RuntimeException {
     
+    public NoSuchCardException(String msg){
+        super(msg);
+    }
     
-    
+    public NoSuchCardException(){
+        super();
+    }
 }

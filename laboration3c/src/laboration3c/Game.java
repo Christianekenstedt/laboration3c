@@ -18,8 +18,11 @@ public class Game {
         dealer = new Hand();
         player = new Hand();
         deck = new Deck();
-        System.out.println(deck.toString());
-        System.out.println(deck.noOfCards());
+        //System.out.println(deck.toString());
+        //System.out.println(deck.noOfCards());
+        for(int i = 0; i < 49;i++){
+            deck.dealCard();
+        }
         run = true;
         done = false;
     }
@@ -42,11 +45,18 @@ public class Game {
     private void init(){
         deck.shuffelCards();
         for(int i = 0; i < 2; i++){
-            dealer.addCard(deck.dealCard());
-            player.addCard(deck.dealCard());
+            hit(dealer);
+            hit(player);
+            //dealer.addCard(deck.dealCard());
+            //player.addCard(deck.dealCard());
         }
-        System.out.println("The dealer have:\n" + dealer.getCard(1) + "\nAnd one hidden"+ "\n");
-        System.out.println("Player have:\n" + player.toString() + "Value: " + player.getValue() );
+        try{
+            System.out.println("The dealer have:\n" + dealer.getCard(1) + "\nAnd one hidden"+ "\n");
+            System.out.println("Player have:\n" + player.toString() + "Value: " + player.getValue() );
+        }catch(NoSuchCardException ce){
+            throw ce;
+        }
+        
         
     }
     /**
@@ -58,7 +68,9 @@ public class Game {
             h.addCard(deck.dealCard());
         }
         catch (NoSuchCardException ce){
-            //Do something
+            deck.fill();
+            h.addCard(deck.dealCard());
+            
         }
     }
     
@@ -97,9 +109,12 @@ public class Game {
             answer = scan.next();
             System.out.println("___________________________");
             if(answer.equals("hit")){
-                hit(player);
-                System.out.println("Player draw " + player.getCard(player.getNoOfCards()) + "\n");
-                System.out.println("Player have:\n" + player.toString() + "Value: " + player.getValue() );
+                
+                    hit(player);
+                    System.out.println("Player draw " + player.getCard(player.getNoOfCards()) + "\n");
+                    System.out.println("Player have:\n" + player.toString() + "Value: " + player.getValue() );
+               
+                
                 return true;
             }else{
                return false;

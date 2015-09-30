@@ -36,9 +36,9 @@ public class Hand {
      * @return the card with the position in the hand given buy the index.
      */
     public Card getCard(int index){
-        if((index < hand.size()) || index > 0){
+        if((index < hand.size()+1) && index > 0){
             return hand.get(index-1);
-        }else return null;
+        }else throw new NoSuchCardException("Wrong index - out of bounds.");
     }
     /**
      * Get the total value of the hand.
