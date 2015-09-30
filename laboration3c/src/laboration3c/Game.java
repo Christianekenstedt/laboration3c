@@ -1,4 +1,5 @@
 package laboration3c;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -20,9 +21,6 @@ public class Game {
         deck = new Deck();
         //System.out.println(deck.toString());
         //System.out.println(deck.noOfCards());
-        for(int i = 0; i < 49;i++){
-            deck.dealCard();
-        }
         run = true;
         done = false;
     }
@@ -51,6 +49,7 @@ public class Game {
             //player.addCard(deck.dealCard());
         }
         try{
+            
             System.out.println("The dealer have:\n" + dealer.getCard(1) + "\nAnd one hidden"+ "\n");
             System.out.println("Player have:\n" + player.toString() + "Value: " + player.getValue() );
         }catch(NoSuchCardException ce){
@@ -69,8 +68,8 @@ public class Game {
         }
         catch (NoSuchCardException ce){
             deck.fill();
-            h.addCard(deck.dealCard());
-            
+            deck.shuffelCards();
+            h.addCard(deck.dealCard()); 
         }
     }
     

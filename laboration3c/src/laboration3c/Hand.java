@@ -1,6 +1,9 @@
 package laboration3c;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * This class Hand represent the poker hand.
@@ -38,7 +41,7 @@ public class Hand {
     public Card getCard(int index){
         if((index < hand.size()+1) && index > 0){
             return hand.get(index-1);
-        }else throw new NoSuchCardException("Wrong index - out of bounds.");
+        }else throw new NoSuchCardException("Wrong index - out of bounds.") ;
     }
     /**
      * Get the total value of the hand.
@@ -48,10 +51,6 @@ public class Hand {
         int value = 0;
         for(int i=0; i<hand.size();i++){
             value += hand.get(i).getRank().getRankpoints();
-            /*if(hand.get(i).getRank().getRankpoints() > 10){
-                value += 10;
-            }else value += hand.get(i).getRank().getRankpoints();
-            */
             }
         return value;
     }
@@ -62,11 +61,11 @@ public class Hand {
      */
     public Card removeCard(int index){
         Card temp;
-        if((index < hand.size()) || index > 0){
+        if((index < hand.size()+1) && index > 0){
             temp = hand.get(index-1);
             hand.remove(index-1);
             return temp;
-        }else return null;
+        }else throw new NoSuchCardException("Wrong index - out of bounds.");
         
     }
     /**
@@ -82,6 +81,7 @@ public class Hand {
         }else return false;
         
     }
+    
     /**
      * Return a string with all the cards in the hand.
      * @return the hand
@@ -89,6 +89,9 @@ public class Hand {
     @Override
     public String toString(){
         String info = new String();
+        //Collections.sort(hand, new BySuit());
+        //Collections.sort(hand, new ByValueAscending());
+        Collections.sort(hand, new ByValueDescending());
         for(int i=0; i< hand.size();i++){
             info += "Card " + (i+1) + ": " + hand.get(i) + "\n";
         }

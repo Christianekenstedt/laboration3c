@@ -1,10 +1,15 @@
 package laboration3c;
+
+import java.util.Comparator;
+
 /**
  * Objects of this class represents cards in a deck (of cards). A card is
  * immutable, i.e. once created its rank or suit cannot be changed.
  */
 
-public class Card {
+public class Card{
+
+    
 
     /**
      * @param rank 1 = Ace, 2 = 2, ...
@@ -65,14 +70,6 @@ public class Card {
     public String toString() {
         return this.rank + " of " + this.suit;
     }
-
     // Tables for converting rank & suit to text (why static?)
-    private static final String[] rankTab = {
-        "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-        "Jack", "Queen", "King"
-    };
 
-    private static final String[] suitTab = {
-        "spades", "hearts", "clubs", "diamonds"
-    };
 }
