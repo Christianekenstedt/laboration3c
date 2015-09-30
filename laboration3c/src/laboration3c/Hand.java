@@ -96,7 +96,5 @@ public class Hand {
             info += "Card " + (i+1) + ": " + hand.get(i) + "\n";
         }
         return info;
-    }
-    
-    
+    }  
 }
